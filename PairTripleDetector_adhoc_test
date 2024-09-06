@@ -1,0 +1,80 @@
+#! /classes/ece2300/install/pkgs/iverilog-12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/classes/ece2300/install/pkgs/iverilog-12.0/lib/ivl/system.vpi";
+:vpi_module "/classes/ece2300/install/pkgs/iverilog-12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/classes/ece2300/install/pkgs/iverilog-12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/classes/ece2300/install/pkgs/iverilog-12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/classes/ece2300/install/pkgs/iverilog-12.0/lib/ivl/va_math.vpi";
+:vpi_module "/classes/ece2300/install/pkgs/iverilog-12.0/lib/ivl/v2009.vpi";
+S_0x1e6be80 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x1e6c010 .scope module, "Top" "Top" 3 5;
+ .timescale 0 0;
+v0x1ebaac0_0 .var "dut_in0", 0 0;
+v0x1ebab80_0 .var "dut_in1", 0 0;
+v0x1ebac20_0 .var "dut_in2", 0 0;
+v0x1ebacc0_0 .net "dut_out", 0 0, L_0x1ebb050;  1 drivers
+S_0x1ea7100 .scope module, "dut" "PairTripleDetector" 3 19, 4 5 0, S_0x1e6c010;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "in0";
+    .port_info 1 /INPUT 1 "in1";
+    .port_info 2 /INPUT 1 "in2";
+    .port_info 3 /OUTPUT 1 "out";
+L_0x1ebad90 .functor OR 1, v0x1ebaac0_0, v0x1ebab80_0, C4<0>, C4<0>;
+L_0x1ebaed0 .functor AND 1, L_0x1ebad90, v0x1ebac20_0, C4<1>, C4<1>;
+L_0x1ebafe0 .functor AND 1, v0x1ebaac0_0, v0x1ebab80_0, C4<1>, C4<1>;
+L_0x1ebb050 .functor OR 1, L_0x1ebaed0, L_0x1ebafe0, C4<0>, C4<0>;
+v0x1ea7300_0 .net "in0", 0 0, v0x1ebaac0_0;  1 drivers
+v0x1eba590_0 .net "in1", 0 0, v0x1ebab80_0;  1 drivers
+v0x1eba650_0 .net "in2", 0 0, v0x1ebac20_0;  1 drivers
+v0x1eba6f0_0 .net "out", 0 0, L_0x1ebb050;  alias, 1 drivers
+v0x1eba7b0_0 .net "w", 0 0, L_0x1ebad90;  1 drivers
+v0x1eba8c0_0 .net "x", 0 0, L_0x1ebafe0;  1 drivers
+v0x1eba980_0 .net "y", 0 0, L_0x1ebaed0;  1 drivers
+    .scope S_0x1e6c010;
+T_0 ;
+    %vpi_call/w 3 38 "$dumpfile", "PairTripleDetector_adhoc_test.vcd" {0 0 0};
+    %vpi_call/w 3 39 "$dumpvars" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x1ebaac0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x1ebab80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x1ebac20_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 49 "$display", "%x %x %x > %x", v0x1ebaac0_0, v0x1ebab80_0, v0x1ebac20_0, v0x1ebacc0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x1ebaac0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x1ebab80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x1ebac20_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 55 "$display", "%x %x %x > %x", v0x1ebaac0_0, v0x1ebab80_0, v0x1ebac20_0, v0x1ebacc0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x1ebaac0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x1ebab80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x1ebac20_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 61 "$display", "%x %x %x > %x", v0x1ebaac0_0, v0x1ebab80_0, v0x1ebac20_0, v0x1ebacc0_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x1ebaac0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x1ebab80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x1ebac20_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 67 "$display", "%x %x %x > %x", v0x1ebaac0_0, v0x1ebab80_0, v0x1ebac20_0, v0x1ebacc0_0 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "PairTripleDetector_adhoc_test.v";
+    "PairTripleDetector.v";
